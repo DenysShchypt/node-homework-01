@@ -3,7 +3,8 @@ import path from "path";
 import detectFileEncoding from "detect-file-encoding-and-language";
 import { nanoid } from "nanoid";
 
-const contactsPath = path.join(".", "db", 'contacts.json');
+// const contactsPath = path.join(".", "db", 'contacts.json');
+const contactsPath = path.join("db/contacts.json");
 
 async function listContacts() {
   const { encoding } = await detectFileEncoding(contactsPath);
