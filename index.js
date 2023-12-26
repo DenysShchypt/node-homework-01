@@ -1,3 +1,4 @@
+import yargs from "yargs";
 import { listContacts, getContactById, removeContact, addContact } from "./contacts.js";
 import { Command } from "commander";
 
@@ -30,17 +31,21 @@ async function invokeAction({ action, id, name, email, phone }) {
     }
 };
 
-program
-    .option('-a, --action <type>', 'choose action')
-    .option('-i, --id <type>', 'user id')
-    .option('-n, --name <type>', 'user name')
-    .option('-e, --email <type>', 'user email')
-    .option('-p, --phone <type>', 'user phone');
-
-program.parse(process.argv);
-
-const argv = program.opts();
+// Варіант Yargs
+const{argv}=yargs(process.argv.splice(2));
 invokeAction(argv);
 
+// Варіант Command
+// program
+//     .option('-a, --action <type>', 'choose action')
+//     .option('-i, --id <type>', 'user id')
+//     .option('-n, --name <type>', 'user name')
+//     .option('-e, --email <type>', 'user email')
+//     .option('-p, --phone <type>', 'user phone');
+
+// program.parse();
+
+// const argv = program.opts();
+// invokeAction(argv);
 
 

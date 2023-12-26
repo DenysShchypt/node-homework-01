@@ -8,6 +8,7 @@ const contactsPath = path.join("db/contacts.json");
 
 
 async function listContacts() {
+  // Кодування файлу
   const { encoding } = await detectFileEncoding(contactsPath);
   const buffer = await fs.readFile(contactsPath);
   return JSON.parse(buffer)
